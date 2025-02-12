@@ -1,0 +1,18 @@
+form{
+    border: 2px solid ;
+    width: fit-content;
+    background-color: azure;
+}
+
+input:hover{
+    border-color: chartreuse;
+   
+}
+input{
+    border-radius: 5px;
+ 
+}
+button:hover{
+    background-color: darkblue;
+    color: aliceblue;
+}
