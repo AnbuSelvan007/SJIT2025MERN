@@ -29,3 +29,50 @@ console.log(10 <= 9);    // false
 console.log(5 & 1);  // AND → 5 (101) & 1 (001) = 1
 console.log(5 | 1);  // OR  → 5 (101) | 1 (001) = 5
 console.log(5 ^ 1);  // XOR → 5 (101) ^ 1 (001) = 4
+
+console.log(~5);     // NOT → ~5 = -6
+console.log(5 << 1); // Left Shift (Multiply by 2) → 10
+console.log(5 >> 1); // Right Shift (Divide by 2) → 2
+console.log(-5 >>> 1); // Zero-fill Right Shift → Large Positive Number
+
+console.log(true && false); // false (AND)
+console.log(true || false); // true (OR)
+console.log(!true);         // false (NOT)
+
+
+let person = {
+    name: "John",
+    age: 30
+  };
+  
+  console.log(person.name);  // Access property → "John"
+  console.log(person.age);   // Access property → 30
+ 
+  for (let i = 1; i <= 5; i++) {
+    console.log("Iteration:", i);
+  }
+  
+  let count = 1;
+while (count <= 5) {
+  console.log("Count:", count);
+  count++;
+}
+
+
+let num = 1;
+do {
+  console.log("Number:", num);
+  num++;
+} while (num <= 5);
+
+
+let fruits = ["Apple", "Banana", "Cherry"];
+for (let fruit of fruits) {
+  console.log(fruit);
+}
+
+
+let person1 = { name: "Alice", age: 25, city: "New York" };
+for (let key in person1) {
+  console.log(key + ":", person1[key]);
+}
