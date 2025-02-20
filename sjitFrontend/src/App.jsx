@@ -10,8 +10,10 @@ import SignUp from './components/function/SignUp';
 import Classcomp from './components/class/Classcomp'
 import Navbar from './components/function/Navbar'
 import About from './components/function/About'
+import UseEffectApi from './components/function/UseEffectApi'
 import Project from './components/function/Project'
 import { BrowserRouter , Routes, Route} from "react-router-dom";
+import UseMemo from './components/function/UseMemo'
 function App() {
   
 
@@ -28,6 +30,8 @@ function App() {
       <Route path="/gallery" element={<Gallery />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/project" element={<Project />} />
+      <Route path="/useEffectApi" element={<UseEffectApi/>} />
+      <Route path="/useMemo" element={<UseMemo/>} />
 
     </Routes>
 
