@@ -9,19 +9,29 @@ import Login from './components/function/Login';
 import SignUp from './components/function/SignUp';
 import Classcomp from './components/class/Classcomp'
 import Navbar from './components/function/Navbar'
+import About from './components/function/About'
+import Project from './components/function/Project'
+import { BrowserRouter , Routes, Route} from "react-router-dom";
 function App() {
   
 
   return (
-    <>
+   
+    
+    <BrowserRouter>
     <Navbar/> <hr />
-     <Home name="Anbu" place="SJIT"/> <hr />
-     <Gallery/> <hr />
-     <Login/> <hr />
-     <SignUp/> <hr />
-     <Contact/> <hr />
+    <Routes>
+      <Route path="/" element={<SignUp />} />
+      <Route path="/" element={<Login />} />
+      <Route path="/Home" element={<Home name="Anbu" place="SJIT" />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/gallery" element={<Gallery />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/project" element={<Project />} />
 
-    </>
+    </Routes>
+
+     </BrowserRouter>
   )
        
 }
