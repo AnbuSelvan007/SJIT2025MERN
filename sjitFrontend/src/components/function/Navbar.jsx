@@ -17,6 +17,9 @@ const Navbar = () => {
           <Link to="/useEffectApi">UseEffectApi</Link>
           <Link to="/useEffectApi">UseRef</Link>
           <Link to="/useMemo">UseMemo</Link>
+          <Link to="/usecallback">UseCallBack</Link>
+          <Link to="/usecustom">UseCustom</Link>
+          <Link to="/Hoc">HOC</Link>
           </div>
         </li>
         <li><Link to="/contact">Contact</Link></li>

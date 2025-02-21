@@ -14,6 +14,9 @@ import UseEffectApi from './components/function/UseEffectApi'
 import Project from './components/function/Project'
 import { BrowserRouter , Routes, Route} from "react-router-dom";
 import UseMemo from './components/function/UseMemo'
+import Usecallback from './components/function/Usecallback'
+import UseMemoize from './components/function/UseMemoize'
+import Hoc from './components/function/HOC/Hoc'
 function App() {
   
 
@@ -32,6 +35,9 @@ function App() {
       <Route path="/project" element={<Project />} />
       <Route path="/useEffectApi" element={<UseEffectApi/>} />
       <Route path="/useMemo" element={<UseMemo/>} />
+      <Route path="/usecallback" element={<Usecallback/>} />
+      <Route path="/usecustom" element={<UseMemoize/>} />
+      <Route path="/Hoc" element={<Hoc/>} />
 
     </Routes>
 
