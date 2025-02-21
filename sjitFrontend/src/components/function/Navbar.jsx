@@ -3,12 +3,12 @@ import { Links,Link } from 'react-router-dom'
 import './Navbar.css'
 const Navbar = () => {
   const [dropdown,setdropdown]=useState(false);
+  const [dropdown1,setdropdown1]=useState(false);
   return (
-    <div>
-      <ul style={{display:"flex",listStyle:"none",gap:"70px",fontSize:"20px"}}>
+    <div style={{backgroundColor:"black",padding:"10px",color:"white"}}>
+      <ul style={{display:"flex",listStyle:"none",gap:"40px",fontSize:"20px"}}>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/about">About</Link></li>
-        <li><Link to="/gallery">Gallery</Link></li>
         <li onMouseOver={()=>setdropdown(true)} onMouseLeave={()=>setdropdown(false)}>
           <span >Hooks</span>
           <div className={dropdown?"drop  active":"drop"}>
@@ -19,10 +19,19 @@ const Navbar = () => {
           <Link to="/useMemo">UseMemo</Link>
           <Link to="/usecallback">UseCallBack</Link>
           <Link to="/usecustom">UseCustom</Link>
-          <Link to="/Hoc">HOC</Link>
+         
           </div>
         </li>
-        <li><Link to="/contact">Contact</Link></li>
+        <li onMouseOver={()=>setdropdown1(true)} onMouseLeave={()=>setdropdown1(false)}>
+          <span >Memoization</span>
+          <div className={dropdown1?"drop  active":"drop"}>
+          <Link to="/memo">Memo</Link>
+          <Link to="/lazy">Lazy/Suspense</Link>
+
+          </div>
+        </li>
+        <li> <Link to="/Hoc">HOC</Link></li>
+        
 
       </ul>
     </div>
