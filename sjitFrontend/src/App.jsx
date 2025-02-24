@@ -16,6 +16,7 @@ import UseMemoize from './components/function/UseMemoize'
 import Hoc from './components/function/HOC/Hoc'
 import Parent from './components/function/Memo/Parent'
 import LazyLoad from './components/function/Memo/LazyLoad';
+import Student from './components/function/Context/Student';
 function App() {
   
 
@@ -36,6 +37,7 @@ function App() {
       <Route path="/Hoc" element={<Hoc/>} />
       <Route path="/memo" element={<Parent/>} />
       <Route path="/lazy" element={<LazyLoad/>} />
+      <Route path="/ContextAPI" element={<Student/>} />
 
     </Routes>
 
