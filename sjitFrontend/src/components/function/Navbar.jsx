@@ -6,7 +6,7 @@ const Navbar = () => {
   const [dropdown1,setdropdown1]=useState(false);
   return (
     <div style={{backgroundColor:"black",padding:"10px",color:"white"}}>
-      <ul style={{display:"flex",listStyle:"none",gap:"40px",fontSize:"20px"}}>
+      <ul style={{display:"flex",listStyle:"none",gap:"20px",fontSize:"20px"}}>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/about">About</Link></li>
         <li onMouseOver={()=>setdropdown(true)} onMouseLeave={()=>setdropdown(false)}>

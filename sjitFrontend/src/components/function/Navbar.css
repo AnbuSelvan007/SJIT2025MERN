@@ -6,10 +6,21 @@
      background-color: rgb(195, 168, 168);
      position: absolute;
      border-radius: 20px;
-     opacity: 0;
+     display: none;
     transition: 0.5s;
 
 }
 .active{
-    opacity: 1;
+   top:110%;
+    display:flex;
+}
+li{
+    padding: 10px;
+    border-radius:10px;
+    position: relative;
+
+
+}
+li:hover{
+    background-color: blueviolet;
 }
