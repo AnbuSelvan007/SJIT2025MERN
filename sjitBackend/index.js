@@ -1,10 +1,12 @@
 const express = require("express");
 const mdb = require("mongoose");
 const dotenv = require("dotenv");
+const bcrypt=require('bcrypt')
 const app = express();
 const path = require("path");
 
 const Signup = require("./model/SignUp");
+const signup_schema = require("./model/SignUp");
 // Define Port
 const PORT = 5000;
 dotenv.config();
@@ -21,19 +23,20 @@ app.get("/", (req, res) => {
 
 
 //signUP in dataBase
-app.post("/signup", (req, res) => {
+app.post("/signup", async(req, res) => {
   try {
+    
     console.log(req.body);
     const { firstName, lastName, phone, password, email } = req.body;
-
+    const hashedpassword=await bcrypt.hash(password,10);
     const newSignup = new Signup({
       firstName: firstName,
       lastName: lastName,
       phone: phone,
-      password: password,
+      password:hashedpassword,
       email: email,
     });
-    newSignup.save();
+     newSignup.save();
     console.log("saved successfully");
     res.status(201).json({ message: "signUP successful", isSignUP: true });
   } catch (err) {
@@ -41,6 +44,22 @@ app.post("/signup", (req, res) => {
     res.status(414).json({ message: "signUP unsuccessful", isSignUP: false });
   }
 });
+
+app.post('/signin',async(req,res)=>{
+      const {email,password}=req.body;
+      const data=await signup_schema.findOne({email})
+      if(!data)
+        res.status(404).json({message:"invalid user"})
+      const isCorrect=await bcrypt.compare(password,data.password);
+      if(isCorrect)
+        res.status(201).json({message:"Login successful"})
+      else
+      res.status(414).json({message:"Login unsuccessful"})
+      console.log(data)
+
+     
+})
+
 
 // Start the Server
 app.listen(PORT, () => {
