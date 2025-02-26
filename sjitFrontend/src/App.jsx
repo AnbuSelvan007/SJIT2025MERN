@@ -17,6 +17,7 @@ import Hoc from './components/function/HOC/Hoc'
 import Parent from './components/function/Memo/Parent'
 import LazyLoad from './components/function/Memo/LazyLoad';
 import Student from './components/function/Context/Student';
+import Auth from './components/function/Auth/Auth';
 function App() {
   
 
@@ -26,8 +27,8 @@ function App() {
     <BrowserRouter>
     <Navbar/> <hr />
     <Routes>
-      <Route path="/" element={<SignUp />} />
-      <Route path="/Login" element={<Login />} />
+      <Route path="/" element={<Auth/>} />
+      <Route path="/SignUp" element={<Login />} />
       <Route path="/Home" element={<Home name="Anbu" place="SJIT" />} />
       <Route path="/about" element={<About />} />
       <Route path="/useEffectApi" element={<UseEffectApi/>} />
