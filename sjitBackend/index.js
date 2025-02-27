@@ -27,8 +27,6 @@ app.get("/", (req, res) => {
 //signUP in dataBase
 app.post("/signup", async(req, res) => {
   try {
-    
-   
     const { firstName, lastName, phone, password, email } = req.body;
     const isExists= await signup_schema.findOne({email})
     if(isExists)
@@ -53,20 +51,46 @@ app.post("/signup", async(req, res) => {
 
 });
 
-app.post('/signin',async(req,res)=>{
-      const {email,password}=req.body;
-      const data=await signup_schema.findOne({email})
-      if(!data)
-        return res.status(404).json({message:"invalid user email",isSignIn:false})
-      const isCorrect=await bcrypt.compare(password,data.password);
-      if(isCorrect)
-        res.status(201).json({message:"Login successful",isSignIn:true})
-      else
-      res.status(414).json({message:"Wrong Password",isSignIn:false})
-      console.log(data)
+// app.post('/signin',async(req,res)=>{
+//       const {email,password}=req.body;
+//       const data=await signup_schema.findOne({email})
+//       if(!data)
+//         return res.status(414).json({message:"invalid user email",isSignIn:false})
+//       const isCorrect=await bcrypt.compare(password,data.password);
+//       if(isCorrect)
+//         res.status(201).json({message:"Login successful",isSignIn:true})
+//       else
+//       res.status(414).json({message:"Wrong Password",isSignIn:false})
+//       console.log(data)
 
      
-})
+// })
+app.post("/signin", async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    // Check if user exists
+    const data = await signup_schema.findOne({ email });
+    if (!data) {
+      return res.status(400).json({ message: "Invalid user email", isSignIn: false });
+    }
+
+    // Compare passwords
+    const isCorrect = await bcrypt.compare(password, data.password);
+    if (!isCorrect) {
+      return res.status(400).json({ message: "Wrong Password", isSignIn: false });
+    }
+
+    // Login successful
+    res.status(200).json({ message: "Login successful", isSignIn: true });
+    
+    console.log("User logged in:", data.email);
+  } catch (error) {
+    console.error("Error during sign-in:", error);
+    res.status(500).json({ message: "Internal Server Error", isSignIn: false });
+  }
+});
+
 
 
 // Start the Server

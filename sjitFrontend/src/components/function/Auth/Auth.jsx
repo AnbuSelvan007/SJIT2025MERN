@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const Auth= () => {
   const [isLogin, setIsLogin] = useState(true);
-  const [formData, setFormData] = useState({ email: "", password: "", firstname: "",phone:0,lastname:""});
+  const [formData, setFormData] = useState({ email: "", password: "", firstname: "",phone:"",lastname:""});
   const navigate=useNavigate();
 
   const toggleForm = () => {
@@ -23,7 +23,7 @@ const Auth= () => {
     console.log(isLogin ? "Logging in..." : "Signing up...", formData);
     if(!isLogin)
     {
-       const req= await axios.post("http://localhost:5000/signup",formData);
+       const req= await axios.post("https://servertesting-iz12.onrender.com/signup",formData);
        const isSignUp=req.data.isSignUp;
        const message=req.data.message;
        alert(message);
@@ -31,13 +31,19 @@ const Auth= () => {
         navigate("/Home")
     }
     else{
-           const req= await axios.post("http://localhost:5000/signin",formData);
+      try{
+          console.log(formData)
+           const req= await axios.post("https://servertesting-iz12.onrender.com/signin",formData);
            const isSignIn=req.data.isSignIn;
            const message=req.data.message;
            alert(message);
            if(isSignIn)
             navigate("/Home")
         }
+      catch(err){
+          console.log("failed")
+      }
+    }
   };
 
   return (
