@@ -31,18 +31,19 @@ const Auth= () => {
         navigate("/Home")
     }
     else{
-      try{
+      // try{
           console.log(formData)
-           const req= await axios.post("https://servertesting-iz12.onrender.com/signin",formData);
-           const isSignIn=req.data.isSignIn;
-           const message=req.data.message;
+           const res= await axios.post("http://localhost:5000/signin",formData);
+           const isSignIn=res.data.isSignIn;
+           const message=res.data.message;
            alert(message);
            if(isSignIn)
             navigate("/Home")
-        }
-      catch(err){
-          console.log("failed")
-      }
+      //   }
+      // catch(err){
+      //     console.log("failed")
+      //     alert('invalid email/password')
+      // }
     }
   };
 
